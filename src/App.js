@@ -5,6 +5,7 @@ import TitleText from './Components/atoms/TitleText';
 import GlobalStyle from './Components/GlobalStyle';
 import Button from './Components/atoms/Button';
 import Input from './Components/atoms/Input';
+import { useState } from 'react';
 const Container = styled.div`
   width: 700px;
   height: 50px;
@@ -24,20 +25,26 @@ const Main = styled.main`
   width: 700px;
 `;
 function App() {
+  const [titleText, setTitleText] = useState('');
+
+  const handleChange = (e) => {
+    setTitleText(e.target.value);
+  };
+
   return (
     <div className="App">
       <GlobalStyle />
       <NavBar />
       <Main>
         <ThumbNailBox>
-          <TitleText>제목을 입력해 주세요</TitleText>
+          <TitleText>{titleText}</TitleText>
         </ThumbNailBox>
         <Container>
           <Button>배경색 초기화</Button>
           <Button>배경색 랜덤 지정</Button>
         </Container>
         <Container>
-          <Input placeholder="제목을 입력하세요" />
+          <Input placeholder="제목을 입력하세요" onChange={handleChange} />
         </Container>
         <Container>
           <Button large>썸네일 추출!</Button>
