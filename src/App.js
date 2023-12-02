@@ -1,11 +1,10 @@
 import Button from './Components/atoms/Button';
-
+import GlobalStyle from './Components/GlobalStyle';
 function App() {
   return (
     <div className="App">
-      <>
-        <Button>버튼임</Button>
-      </>
+      <GlobalStyle />
+      <Button>버튼임</Button>
     </div>
   );
 }
