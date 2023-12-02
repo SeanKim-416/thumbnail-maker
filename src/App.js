@@ -1,12 +1,12 @@
 import Button from './Components/atoms/Button';
 import Input from './Components/atoms/Input';
+import NavBar from './Components/NavBar';
 import GlobalStyle from './Components/GlobalStyle';
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Button>버튼임</Button>
-      <Input placeholder="제목을 입력하세요" />
+      <NavBar />
     </div>
   );
 }
