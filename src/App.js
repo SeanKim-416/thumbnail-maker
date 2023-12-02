@@ -1,12 +1,48 @@
+import styled from 'styled-components';
+import NavBar from './Components/NavBar';
+import ThumbNailBox from './Components/atoms/ThumbnailBox';
+import TitleText from './Components/atoms/TitleText';
+import GlobalStyle from './Components/GlobalStyle';
 import Button from './Components/atoms/Button';
 import Input from './Components/atoms/Input';
-import NavBar from './Components/NavBar';
-import GlobalStyle from './Components/GlobalStyle';
+const Container = styled.div`
+  width: 700px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+`;
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 200px;
+  gap: 50px;
+  width: 700px;
+`;
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
       <NavBar />
+      <Main>
+        <ThumbNailBox>
+          <TitleText>제목을 입력해 주세요</TitleText>
+        </ThumbNailBox>
+        <Container>
+          <Button>배경색 초기화</Button>
+          <Button>배경색 랜덤 지정</Button>
+        </Container>
+        <Container>
+          <Input placeholder="제목을 입력하세요" />
+        </Container>
+        <Container>
+          <Button large>썸네일 추출!</Button>
+        </Container>
+      </Main>
     </div>
   );
 }

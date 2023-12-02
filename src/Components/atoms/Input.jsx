@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 const Input = styled.input`
-  border: 2px solid transparent;
-  width: 100%;
+  border: 2px solid #ddd;
+  width: 80%;
   height: 50px;
   padding-left: 0.8em;
   outline: none;
   overflow: hidden;
-  background-color: #f3f3f3;
+  background-color: #fff;
   border-radius: 10px;
   transition: all 0.5s;
+  font-size: 100%;
 
   &:hover,
   &:focus {
