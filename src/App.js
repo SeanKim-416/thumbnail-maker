@@ -25,10 +25,24 @@ const Main = styled.main`
   width: 700px;
 `;
 function App() {
-  const [titleText, setTitleText] = useState('');
-
+  const [titleText, setTitleText] = useState('제목을 입력해 주세요');
+  const [boxRGB, setBoxRGB] = useState({ red: 255, green: 255, blue: 255 });
   const handleChange = (e) => {
     setTitleText(e.target.value);
+  };
+
+  const handleClearClick = () => {
+    setBoxRGB({ ...boxRGB, red: 255, green: 255, blue: 255 });
+  };
+  const createRandomRGBValue = () => {
+    const MAX_VALUE = 256;
+    return Math.floor(Math.random() * MAX_VALUE);
+  };
+  const handleRandomButtonClick = () => {
+    const redValue = createRandomRGBValue();
+    const greenValue = createRandomRGBValue();
+    const blueValue = createRandomRGBValue();
+    setBoxRGB({ ...boxRGB, red: redValue, green: greenValue, blue: blueValue });
   };
 
   return (
@@ -36,12 +50,14 @@ function App() {
       <GlobalStyle />
       <NavBar />
       <Main>
-        <ThumbNailBox>
+        <ThumbNailBox
+          style={{ backgroundColor: `rgb(${boxRGB.red}, ${boxRGB.green}, ${boxRGB.blue})` }}
+        >
           <TitleText>{titleText}</TitleText>
         </ThumbNailBox>
         <Container>
-          <Button>배경색 초기화</Button>
-          <Button>배경색 랜덤 지정</Button>
+          <Button onClick={handleClearClick}>배경색 초기화</Button>
+          <Button onClick={handleRandomButtonClick}>배경색 랜덤 지정</Button>
         </Container>
         <Container>
           <Input placeholder="제목을 입력하세요" onChange={handleChange} />
