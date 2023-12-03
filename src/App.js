@@ -5,7 +5,9 @@ import TitleText from './Components/atoms/TitleText';
 import GlobalStyle from './Components/GlobalStyle';
 import Button from './Components/atoms/Button';
 import Input from './Components/atoms/Input';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import html2canvas from 'html2canvas';
+import StyledModal from './Components/atoms/Modal';
 const Container = styled.div`
   width: 700px;
   height: 50px;
@@ -27,6 +29,9 @@ const Main = styled.main`
 function App() {
   const [titleText, setTitleText] = useState('제목을 입력해 주세요');
   const [boxRGB, setBoxRGB] = useState({ red: 255, green: 255, blue: 255 });
+  const [imgLink, setImgLink] = useState('');
+  const [isActive, setIsActive] = useState(false);
+  const canvasRef = useRef();
   const handleChange = (e) => {
     setTitleText(e.target.value);
   };
@@ -45,13 +50,26 @@ function App() {
     setBoxRGB({ ...boxRGB, red: redValue, green: greenValue, blue: blueValue });
   };
 
+  const handleExtractButtonClick = async () => {
+    const extracted = await html2canvas(canvasRef.current);
+    const createdLink = extracted.toDataURL('image/png');
+    setImgLink(createdLink);
+    setIsActive(true);
+  };
+
+  const handleModal = () => {
+    setIsActive(false);
+  };
+
   return (
     <div className="App">
       <GlobalStyle />
+      <StyledModal imgLink={imgLink} onClick={handleModal} isActive={isActive} />
       <NavBar />
       <Main>
         <ThumbNailBox
           style={{ backgroundColor: `rgb(${boxRGB.red}, ${boxRGB.green}, ${boxRGB.blue})` }}
+          ref={canvasRef}
         >
           <TitleText>{titleText}</TitleText>
         </ThumbNailBox>
@@ -63,7 +81,9 @@ function App() {
           <Input placeholder="제목을 입력하세요" onChange={handleChange} />
         </Container>
         <Container>
-          <Button large>썸네일 추출!</Button>
+          <Button large onClick={handleExtractButtonClick}>
+            썸네일 추출!
+          </Button>
         </Container>
       </Main>
     </div>
@@ -81,11 +101,3 @@ export default App;
 //   image.src = link;
 //   document.querySelector('.이미지').appendChild(image);
 // };
-
-{
-  /* <div style={{ width: '500px', height: '400px', backgroundColor: 'red' }} className="target">
-        안녕
-      </div>
-      <button onClick={handleClick}>테스트</button>
-      <div className="이미지"></div> */
-}
