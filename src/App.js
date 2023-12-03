@@ -31,6 +31,7 @@ function App() {
   const [boxRGB, setBoxRGB] = useState({ red: 255, green: 255, blue: 255 });
   const [imgLink, setImgLink] = useState('');
   const [isActive, setIsActive] = useState(false);
+  const [isWhite, setIsWhite] = useState(false);
   const canvasRef = useRef();
   const handleChange = (e) => {
     setTitleText(e.target.value);
@@ -61,6 +62,10 @@ function App() {
     setIsActive(false);
   };
 
+  const handleFontColorClick = () => {
+    isWhite ? setIsWhite(false) : setIsWhite(true);
+  };
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -71,11 +76,12 @@ function App() {
           style={{ backgroundColor: `rgb(${boxRGB.red}, ${boxRGB.green}, ${boxRGB.blue})` }}
           ref={canvasRef}
         >
-          <TitleText>{titleText}</TitleText>
+          <TitleText isWhite={isWhite}>{titleText}</TitleText>
         </ThumbNailBox>
         <Container>
           <Button onClick={handleClearClick}>배경색 초기화</Button>
           <Button onClick={handleRandomButtonClick}>배경색 랜덤 지정</Button>
+          <Button onClick={handleFontColorClick}>제목 색 바꾸기</Button>
         </Container>
         <Container>
           <Input placeholder="제목을 입력하세요" onChange={handleChange} />
