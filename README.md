@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# 블로그 썸네일 생성기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+블로그 썸네일을 만들어주는 생성기 프로젝트입니다.
 
-## Available Scripts
+## 목차
 
-In the project directory, you can run:
+1. [개요](#1.-개요)
+2. [제작 동기](#2.-제작-동기)
+3. [웹사이트 설명](#3.-웹사이트-설명)
 
-### `npm start`
+## 1. 개요
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 프로젝트 명 : 블로그 썸네일 추출기
+- 프로젝트 지속 기간 : 2023.12.2 ~ 2023.12.3
+- 개발 언어 : javascript(react)
+- 사용 라이브러리 : html2canvas, react, styled-components
+- 개발자 : 김광현
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. 제작 동기
 
-### `npm test`
+취업에 도움이 될 수 있게 벨로그를 써가고 있는데, 썸네일을 어떤 이미지로 지정할 지 고민이 많았습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+그래서 그냥 제곧내(제목이 곧 내용) 형식으로 제목을 그대로 ppt 제목처럼 이미지화 하는 생성기가 있었으면 좋겠다는 생각이 들어 개발하게 되었습니다.
 
-### `npm run build`
+항상 부트캠프를 수강하면서 주어진 형식이나 요구사항 대로 개발했었는데, 이번 기회에 직접 기획하여 자유로운 형식으로 개발해 보고 싶었습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+익숙하지 않던 styled-components를 연습 해보고 싶어 다뤄 볼 기회라 생각했고, 재밌는 npm의 패키지를 사용해 볼 기회라 생각하여 실력 향상을 도모한 토이 프로젝트를 제작하게 되었습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 3. 웹사이트 설명
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 배경색 초기화
 
-### `npm run eject`
+배경색을 하얀 색으로 바꿔줍니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 배경색 랜덤 지정
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+배경색을 랜덤으로 가져와 지정해줍니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 입력창
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+텍스트를 입력하면 만들 썸네일에 그대로 반영됩니다.
 
-## Learn More
+### 썸네일 추출 버튼
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+만들 썸네일의 박스를 이미지로 추출하며, 모달창이 뜨며 이미지를 저장할 수 있습니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+이미지는 png 형식으로 저장할 수 있습니다.
 
-### Code Splitting
+# 개발 기록
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+https://velog.io/@terran5736/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1%EA%B8%B01
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+벨로그에서 확인 할 수 있습니다.
